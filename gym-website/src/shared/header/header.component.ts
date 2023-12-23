@@ -36,4 +36,8 @@ export class HeaderComponent implements OnInit {
   openSignInForm() {
     this.isSignInVisible = !this.isSignInVisible;
   }
+
+  onSignInSubmit() {
+    console.log('im pepega');
+  }
 }

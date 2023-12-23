@@ -9,8 +9,10 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  z-index: 2;
 }
 
+/* LOGO START */
 .logo-container {
   margin-left: 40px;
 }
@@ -25,6 +27,7 @@
   transform: scale(2);
   cursor: pointer;
 }
+/* LOGO END */
 
 .navbar-container {
   margin: 0 10px;
@@ -34,6 +37,7 @@
   justify-content: space-evenly;
 }
 
+/* HEADER BUTTONS START */
 .header-button {
   width: 80px;
   height: 30px;
@@ -52,11 +56,30 @@
   background-color: white;
   cursor: pointer;
 }
+/* HEADER BUTTONS END */
 
 .hamburger-menu {
   display: none;
 }
 
+/* FORMS START */
+.form-wrapper {
+  background-color: black;
+}
+
+.form-container {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 15px;
+  height: 400px;
+  width: 600px;
+}
+
+/* MOBILE WIDTH START */
 @media screen and (max-width: 500px) {
   .navbar-container {
     display: none;
@@ -108,3 +131,4 @@
     margin: 5px;
   }
 }
+/* MOBILE WIDTH END */

@@ -23,18 +23,24 @@
       <button class="header-button">log in</button>
     </div>
   </div>
+  <div class="form-wrapper">
+    <form
+      class="form-container"
+      *ngIf="isSignInVisible"
+      [formGroup]="signInForm"
+      (ngSubmit)="onSignInSubmit()"
+    >
+      <!-- Form controls go here -->
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" />
 
-  <form *ngIf="isSignInVisible" [formGroup]="signInForm">
-    <!-- Form controls go here -->
-    <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name" />
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" />
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="email" />
+      <label for="password" type="password">Password:</label>
+      <input type="password" id="password" formControlName="password" />
 
-    <label for="password" type="password">Password:</label>
-    <input type="password" id="password" formControlName="password" />
-
-    <button type="submit">create account</button>
-  </form>
+      <button type="submit">create account</button>
+    </form>
+  </div>
 </div>

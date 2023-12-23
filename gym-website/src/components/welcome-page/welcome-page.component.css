@@ -1,0 +1,12 @@
+.welcome-page-hero-img {
+  background-image: url(../welcome-page/../../assets/images/welcome-page-img.png);
+  position: absolute;
+  top: 60px;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 50%;
+}
