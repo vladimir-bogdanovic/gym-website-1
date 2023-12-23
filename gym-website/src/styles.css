@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+  --primary-color: #469ff8;
+  --secondary-color: #001d4a;
+  --buttons: #5f7470;
+  --text-color: #e7ecef;
+}

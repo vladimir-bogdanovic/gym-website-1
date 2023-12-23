@@ -1,0 +1,22 @@
+.footer-wrapper {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-bar {
+  height: 50px;
+  background: linear-gradient(
+    0.33turn,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-title {
+  color: white;
+  text-align: center;
+}
