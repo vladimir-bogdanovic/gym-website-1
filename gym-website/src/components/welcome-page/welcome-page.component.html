@@ -1,5 +1,50 @@
 <div class="welcome-page-hero-img">
   <div class="welcome-message-container">
     <h1>supp mf's!!!</h1>
+    <div class="forms-wrapper">
+      <form
+        class="form-container"
+        *ngIf="isSigninFormOpened"
+        [formGroup]="signInForm"
+        (ngSubmit)="onSignInSubmit()"
+      >
+        <label for="name">Name:</label>
+        <input type="text" formControlName="name" />
+
+        <label for="email">Email:</label>
+        <input type="email" formControlName="email" />
+
+        <label for="password" type="password">Password:</label>
+        <input type="password" formControlName="password" />
+
+        <button type="submit">create account</button>
+      </form>
+      <form
+        *ngIf="isloginFormOpened"
+        class="form-container"
+        [formGroup]="logInForm"
+        (ngSubmit)="onlogInSubmit()"
+      >
+        <label for="name">Name:</label>
+        <input type="text" formControlName="name" />
+
+        <label for="password" type="password">Password:</label>
+        <input type="password" formControlName="password" />
+
+        <button type="submit">login</button>
+      </form>
+      <ng-container *ngIf="isHamMenuOpen">
+        <div class="opened-navbar">
+          <div class="navbar-content">
+            <ul>
+              <li (click)="openSigninForm()">Sign in</li>
+              <li (click)="openLoginForm()">Log in</li>
+            </ul>
+          </div>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>
+
+<!-- treba da se dodaju stilovi na forme, navigacija, nesto za zatvaranje formi takodje i na welcome stranci neki naslov text i tako dalje -->

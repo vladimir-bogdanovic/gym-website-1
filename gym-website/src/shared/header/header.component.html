@@ -5,42 +5,24 @@
     </div>
 
     <div class="hamburger-menu">
-      <span (click)="openMenu()">&#x2630;</span>
-      <ng-container *ngIf="isHamMenuOpen">
-        <div class="opened-navbar">
-          <div class="navbar-content">
-            <ul>
-              <li>Sign in</li>
-              <li>Log in</li>
-            </ul>
-          </div>
-        </div>
-      </ng-container>
+      <span (click)="updateHamMenuBooleanValue()">&#x2630;</span>
     </div>
 
     <div class="navbar-container">
-      <button (click)="openSignInForm()" class="header-button">sign in</button>
-      <button class="header-button">log in</button>
+      <button
+        [disabled]="togglingFormLogin"
+        (click)="updateToggleValueSignin()"
+        class="header-button"
+      >
+        sign in
+      </button>
+      <button
+        [disabled]="togglingFormSignin"
+        (click)="updateToggleValueLogin()"
+        class="header-button"
+      >
+        log in
+      </button>
     </div>
-  </div>
-  <div class="form-wrapper">
-    <form
-      class="form-container"
-      *ngIf="isSignInVisible"
-      [formGroup]="signInForm"
-      (ngSubmit)="onSignInSubmit()"
-    >
-      <!-- Form controls go here -->
-      <label for="name">Name:</label>
-      <input type="text" id="name" formControlName="name" />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" formControlName="email" />
-
-      <label for="password" type="password">Password:</label>
-      <input type="password" id="password" formControlName="password" />
-
-      <button type="submit">create account</button>
-    </form>
   </div>
 </div>

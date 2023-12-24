@@ -62,23 +62,6 @@
   display: none;
 }
 
-/* FORMS START */
-.form-wrapper {
-  background-color: black;
-}
-
-.form-container {
-  background-color: aquamarine;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin: 15px;
-  height: 400px;
-  width: 600px;
-}
-
 /* MOBILE WIDTH START */
 @media screen and (max-width: 500px) {
   .navbar-container {
@@ -91,7 +74,7 @@
     margin: 0 25px;
   }
 
-  .opened-navbar {
+  /* .opened-navbar {
     background-color: grey;
     position: absolute;
     top: 60px;
@@ -125,7 +108,7 @@
 
   li:hover {
     background-color: var(--primary-color);
-  }
+  } */
 
   .header-button {
     margin: 5px;

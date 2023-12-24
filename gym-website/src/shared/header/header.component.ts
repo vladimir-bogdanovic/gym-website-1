@@ -1,43 +1,34 @@
 import { NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { Component } from '@angular/core';
+import {} from '@angular/forms';
+import { ToogleFormsService } from '../services/toogle-forms.service';
 
 @Component({
   standalone: true,
   selector: 'header',
-  imports: [NgIf, ReactiveFormsModule],
+  imports: [NgIf],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   isHamMenuOpen = false;
-  signInForm!: FormGroup;
-  isSignInVisible = false;
+  togglingFormSignin = false;
+  togglingFormLogin = false;
 
-  openMenu() {
+  constructor(private toggleFormsService: ToogleFormsService) {}
+
+  updateToggleValueSignin() {
+    this.togglingFormSignin = !this.togglingFormSignin;
+    this.toggleFormsService.updateBooleanValueS(this.togglingFormSignin);
+  }
+
+  updateToggleValueLogin() {
+    this.togglingFormLogin = !this.togglingFormLogin;
+    this.toggleFormsService.updateBooleanValueL(this.togglingFormLogin);
+  }
+
+  updateHamMenuBooleanValue() {
     this.isHamMenuOpen = !this.isHamMenuOpen;
-  }
-
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    this.signInForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required, Validators.length > 4],
-    });
-  }
-
-  openSignInForm() {
-    this.isSignInVisible = !this.isSignInVisible;
-  }
-
-  onSignInSubmit() {
-    console.log('im pepega');
+    this.toggleFormsService.updateHamMenuBooleanValue(this.isHamMenuOpen);
   }
 }
