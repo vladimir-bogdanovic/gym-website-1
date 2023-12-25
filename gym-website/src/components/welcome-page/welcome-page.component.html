@@ -1,50 +1,76 @@
-<div class="welcome-page-hero-img">
-  <div class="welcome-message-container">
-    <h1>supp mf's!!!</h1>
-    <div class="forms-wrapper">
-      <form
-        class="form-container"
-        *ngIf="isSigninFormOpened"
-        [formGroup]="signInForm"
-        (ngSubmit)="onSignInSubmit()"
-      >
-        <label for="name">Name:</label>
-        <input type="text" formControlName="name" />
-
-        <label for="email">Email:</label>
-        <input type="email" formControlName="email" />
-
-        <label for="password" type="password">Password:</label>
-        <input type="password" formControlName="password" />
-
-        <button type="submit">create account</button>
-      </form>
-      <form
-        *ngIf="isloginFormOpened"
-        class="form-container"
-        [formGroup]="logInForm"
-        (ngSubmit)="onlogInSubmit()"
-      >
-        <label for="name">Name:</label>
-        <input type="text" formControlName="name" />
-
-        <label for="password" type="password">Password:</label>
-        <input type="password" formControlName="password" />
-
-        <button type="submit">login</button>
-      </form>
-      <ng-container *ngIf="isHamMenuOpen">
-        <div class="opened-navbar">
-          <div class="navbar-content">
-            <ul>
-              <li (click)="openSigninForm()">Sign in</li>
-              <li (click)="openLoginForm()">Log in</li>
-            </ul>
-          </div>
-        </div>
-      </ng-container>
+<div class="welcome-page-wrapper">
+  <div class="welcome-text-wrapper">
+    <div class="welcome-text-container">
+      <h1>Welcome to Dream Gym</h1>
     </div>
+  </div>
+  <div class="forms-wrapper-container">
+    <form
+      class="form-container"
+      *ngIf="isSigninFormOpened"
+      [formGroup]="signInForm"
+      (ngSubmit)="onSignInSubmit()"
+    >
+      <div class="close-form-button">
+        <div
+          (click)="closeFormsOnButton()"
+          class="close-button-img-container"
+        ></div>
+      </div>
+
+      <h2>Create new account</h2>
+
+      <label for="name">Name:</label>
+      <input type="text" formControlName="name" />
+
+      <label for="email">Email:</label>
+      <input type="email" formControlName="email" />
+
+      <label for="password" type="password">Password:</label>
+      <input type="password" formControlName="password" />
+      <div class="submit-form-container">
+        <button class="submit-form-button" type="submit">create account</button>
+      </div>
+    </form>
+    <form
+      *ngIf="isloginFormOpened"
+      class="form-container"
+      [formGroup]="logInForm"
+      (ngSubmit)="onlogInSubmit()"
+    >
+      <div class="close-form-button">
+        <div
+          (click)="closeFormsOnButton()"
+          class="close-button-img-container"
+        ></div>
+      </div>
+
+      <h2>Log in to your account</h2>
+
+      <label for="name">Name:</label>
+      <input type="text" formControlName="name" />
+
+      <label for="password" type="password">Password:</label>
+      <input type="password" formControlName="password" />
+
+      <button type="submit">login</button>
+    </form>
+
+    <ng-container *ngIf="isHamMenuOpen">
+      <div class="opened-navbar">
+        <div class="navbar-content">
+          <ul>
+            <li (click)="openSigninForm()">Sign in</li>
+            <li (click)="openLoginForm()">Log in</li>
+          </ul>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>
 
 <!-- treba da se dodaju stilovi na forme, navigacija, nesto za zatvaranje formi takodje i na welcome stranci neki naslov text i tako dalje -->
+<!-- treba nav da se doda, da se promeni header navigacija kada uspresno zavrsimo auth i kad se prebacimo na home page
+dodati page not found i redirekciju
+nadji dobar api za Gym
+validatore uraditi kako valja  -->

@@ -46,10 +46,16 @@ export class WelcomePageComponent {
 
   openSigninForm() {
     this.isSigninFormOpened = !this.isSigninFormOpened;
+    if (this.isSigninFormOpened === true) {
+      this.isloginFormOpened = false;
+    }
   }
 
   openLoginForm() {
     this.isloginFormOpened = !this.isloginFormOpened;
+    if (this.isloginFormOpened === true) {
+      this.isSigninFormOpened = false;
+    }
   }
 
   SigninFormFunction() {
@@ -65,6 +71,13 @@ export class WelcomePageComponent {
       name: ['', Validators.required],
       password: ['', Validators.required, Validators.length > 4],
     });
+  }
+
+  closeFormsOnButton() {
+    this.isSigninFormOpened = false;
+    this.isloginFormOpened = false;
+    this.toggleFormsService.updateFormStateToFalse(this.isSigninFormOpened);
+    this.toggleFormsService.updateFormStateToFalse(this.isloginFormOpened);
   }
 
   onSignInSubmit() {

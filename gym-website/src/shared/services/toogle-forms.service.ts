@@ -25,4 +25,11 @@ export class ToogleFormsService {
   updateHamMenuBooleanValue(value: boolean) {
     this.hamMenuBooleanCheck.next(value);
   }
+
+  private closeFormButton = new BehaviorSubject<boolean>(false);
+  closeFormButton$ = this.closeFormButton.asObservable();
+
+  updateFormStateToFalse(value: boolean) {
+    this.closeFormButton.next(value);
+  }
 }

@@ -1,21 +1,28 @@
-import { NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { NgClass, NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import {} from '@angular/forms';
 import { ToogleFormsService } from '../services/toogle-forms.service';
 
 @Component({
   standalone: true,
   selector: 'header',
-  imports: [NgIf],
+  imports: [NgIf, NgClass],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isHamMenuOpen = false;
   togglingFormSignin = false;
   togglingFormLogin = false;
 
   constructor(private toggleFormsService: ToogleFormsService) {}
+
+  ngOnInit(): void {
+    this.toggleFormsService.closeFormButton$.subscribe((value: boolean) => {
+      this.togglingFormSignin = value;
+      this.togglingFormLogin = value;
+    });
+  }
 
   updateToggleValueSignin() {
     this.togglingFormSignin = !this.togglingFormSignin;
