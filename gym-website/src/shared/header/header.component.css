@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   z-index: 2;
 }
 
@@ -29,17 +29,18 @@
 }
 /* LOGO END */
 
+/* HEADER BUTTONS START */
 .navbar-container {
   margin: 0 10px;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  width: 200px;
-  justify-content: space-evenly;
+  width: fit-content;
+  justify-content: right;
 }
 
-/* HEADER BUTTONS START */
 .header-button {
-  width: 80px;
+  width: max-content;
   height: 30px;
   background-color: var(--buttons);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -72,7 +73,7 @@ span:hover {
 }
 
 /* MOBILE WIDTH START */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 400px) {
   .navbar-container {
     display: none;
   }
@@ -88,8 +89,3 @@ span:hover {
   }
 }
 /* MOBILE WIDTH END */
-
-.disabled-button {
-  background-color: gray;
-  color: white;
-}

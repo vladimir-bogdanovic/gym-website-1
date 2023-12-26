@@ -7,22 +7,33 @@
     <div class="hamburger-menu">
       <span (click)="updateHamMenuBooleanValue()">&#x2630;</span>
     </div>
+    <ng-container *ngIf="authNavigation">
+      <div class="navbar-container">
+        <button
+          [disabled]="togglingFormLogin"
+          (click)="updateToggleValueSignin()"
+          class="header-button"
+        >
+          sign in
+        </button>
+        <button
+          [disabled]="togglingFormSignin"
+          (click)="updateToggleValueLogin()"
+          class="header-button"
+        >
+          log in
+        </button>
+      </div>
+    </ng-container>
 
-    <div class="navbar-container">
-      <button
-        [disabled]="togglingFormLogin"
-        (click)="updateToggleValueSignin()"
-        class="header-button"
-      >
-        sign in
-      </button>
-      <button
-        [disabled]="togglingFormSignin"
-        (click)="updateToggleValueLogin()"
-        class="header-button"
-      >
-        log in
-      </button>
-    </div>
+    <ng-container *ngIf="websiteNavigation">
+      <div class="navbar-container">
+        <button class="header-button">Grove street</button>
+        <button class="header-button">Programas</button>
+        <button class="header-button">Trainers</button>
+        <button class="header-button">Exercises</button>
+        <button class="header-button">Contacts</button>
+      </div>
+    </ng-container>
   </div>
 </div>

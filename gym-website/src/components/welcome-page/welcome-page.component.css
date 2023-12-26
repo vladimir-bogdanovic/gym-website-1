@@ -106,46 +106,6 @@ h2 {
   cursor: pointer;
 }
 
-/* below 500px */
-
 .opened-navbar {
-  background-image: url(../welcome-page/../../assets/images/nav-menu-bg-img.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.navbar-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 60px;
-  flex-direction: column;
-  width: 100%;
-}
-
-ul {
-  width: 100%;
-  text-align: center;
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin: 15px;
-  font-size: 26px;
-  background-color: var(--secondary-color);
-  color: white;
-  border-radius: 3px;
-  border: solid white 2px;
-  cursor: pointer;
-}
-
-li:hover {
-  background-color: var(--primary-color);
 }

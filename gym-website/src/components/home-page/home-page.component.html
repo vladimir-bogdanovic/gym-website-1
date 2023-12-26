@@ -1,1 +1,15 @@
 <p>home-page works!</p>
+
+<ng-container *ngIf="isHamMenuOpen">
+  <div class="opened-navbar">
+    <div class="navbar-content">
+      <ul class="navbar-ul">
+        <li class="navbar-li">Home</li>
+        <li class="navbar-li">Programas</li>
+        <li class="navbar-li">Trainers</li>
+        <li class="navbar-li">exercises</li>
+        <li class="navbar-li">contact</li>
+      </ul>
+    </div>
+  </div>
+</ng-container>

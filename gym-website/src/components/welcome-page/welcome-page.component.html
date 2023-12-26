@@ -29,7 +29,13 @@
       <label for="password" type="password">Password:</label>
       <input type="password" formControlName="password" />
       <div class="submit-form-container">
-        <button class="submit-form-button" type="submit">create account</button>
+        <button
+          [disabled]="!signInForm.valid"
+          class="submit-form-button"
+          type="submit"
+        >
+          create account
+        </button>
       </div>
     </form>
     <form
@@ -59,9 +65,9 @@
     <ng-container *ngIf="isHamMenuOpen">
       <div class="opened-navbar">
         <div class="navbar-content">
-          <ul>
-            <li (click)="openSigninForm()">Sign in</li>
-            <li (click)="openLoginForm()">Log in</li>
+          <ul class="navbar-ul">
+            <li class="navbar-li" (click)="openSigninForm()">Sign in</li>
+            <li class="navbar-li" (click)="openLoginForm()">Log in</li>
           </ul>
         </div>
       </div>
@@ -69,8 +75,8 @@
   </div>
 </div>
 
-<!-- treba da se dodaju stilovi na forme, navigacija, nesto za zatvaranje formi takodje i na welcome stranci neki naslov text i tako dalje -->
-<!-- treba nav da se doda, da se promeni header navigacija kada uspresno zavrsimo auth i kad se prebacimo na home page
+<!-- treba da se dodaju stilovi na dugme u formi ==> dodati popup prozore za invalid unose
+
 dodati page not found i redirekciju
 nadji dobar api za Gym
-validatore uraditi kako valja  -->
+  -->

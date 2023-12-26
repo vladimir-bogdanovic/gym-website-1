@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToogleFormsService } from 'src/shared/services/toogle-forms.service';
 
 @Component({
@@ -24,7 +25,8 @@ export class WelcomePageComponent {
 
   constructor(
     private fb: FormBuilder,
-    private toggleFormsService: ToogleFormsService
+    private toggleFormsService: ToogleFormsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -60,16 +62,16 @@ export class WelcomePageComponent {
 
   SigninFormFunction() {
     this.signInForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required, Validators.length > 4],
+      name: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, Validators.required, Validators.length > 4],
     });
   }
 
   loginFormFunction() {
     this.logInForm = this.fb.group({
-      name: ['', Validators.required],
-      password: ['', Validators.required, Validators.length > 4],
+      name: [null, Validators.required],
+      password: [null, Validators.required, Validators.length > 4],
     });
   }
 
@@ -81,10 +83,13 @@ export class WelcomePageComponent {
   }
 
   onSignInSubmit() {
-    console.log('im pepega');
+    console.log(this.signInForm.value);
+    console.log(this.signInForm);
+    this.router.navigate(['/home']);
   }
 
   onlogInSubmit() {
-    console.log('asdasdasd');
+    console.log(this.logInForm.value);
+    this.router.navigate(['/home']);
   }
 }
