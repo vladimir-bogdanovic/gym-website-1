@@ -109,3 +109,17 @@ h2 {
 .opened-navbar {
   top: 0;
 }
+
+button:disabled {
+  background-color: grey;
+}
+
+.invalid-form-message {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

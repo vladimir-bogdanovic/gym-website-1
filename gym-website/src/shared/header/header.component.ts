@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
     const currentRoute = this.router.url;
     console.log(currentRoute);
 
-    if (currentRoute === '/') {
+    if (currentRoute === '/' || currentRoute === '/welcome') {
       this.authNavigation = true;
       this.websiteNavigation = false;
       this.togglingFormSignin = false;

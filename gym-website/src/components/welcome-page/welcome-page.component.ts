@@ -44,6 +44,8 @@ export class WelcomePageComponent {
 
     this.SigninFormFunction();
     this.loginFormFunction();
+
+    this.logInForm.reset();
   }
 
   openSigninForm() {
@@ -62,16 +64,30 @@ export class WelcomePageComponent {
 
   SigninFormFunction() {
     this.signInForm = this.fb.group({
-      name: [null, Validators.required],
+      name: [
+        null,
+        [
+          Validators.required,
+          Validators.pattern('[a-zA-Z]*'),
+          Validators.minLength(4),
+        ],
+      ],
       email: [null, [Validators.required, Validators.email]],
-      password: [null, Validators.required, Validators.length > 4],
+      password: [null, [Validators.required, Validators.minLength(4)]],
     });
   }
 
   loginFormFunction() {
     this.logInForm = this.fb.group({
-      name: [null, Validators.required],
-      password: [null, Validators.required, Validators.length > 4],
+      name: [
+        null,
+        [
+          Validators.required,
+          Validators.pattern('[a-zA-Z]*'),
+          Validators.minLength(4),
+        ],
+      ],
+      password: [null, [Validators.required, Validators.minLength(4)]],
     });
   }
 
@@ -83,13 +99,12 @@ export class WelcomePageComponent {
   }
 
   onSignInSubmit() {
-    console.log(this.signInForm.value);
-    console.log(this.signInForm);
     this.router.navigate(['/home']);
+    this.signInForm.reset();
   }
 
   onlogInSubmit() {
-    console.log(this.logInForm.value);
     this.router.navigate(['/home']);
+    this.logInForm.reset();
   }
 }

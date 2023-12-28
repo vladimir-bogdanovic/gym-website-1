@@ -22,19 +22,43 @@
 
       <label for="name">Name:</label>
       <input type="text" formControlName="name" />
+      <span
+        class="invalid-form-message"
+        *ngIf="
+          !signInForm.get('name')?.valid && signInForm.get('name')?.touched
+        "
+        >You can't use special and space characters! <br />
+        Password must contain more than 4 characters!
+      </span>
 
       <label for="email">Email:</label>
       <input type="email" formControlName="email" />
+      <span
+        class="invalid-form-message"
+        *ngIf="
+          !signInForm.get('email')?.valid && signInForm.get('email')?.touched
+        "
+        >Enter valid E-mail!
+      </span>
 
       <label for="password" type="password">Password:</label>
       <input type="password" formControlName="password" />
+      <span
+        class="invalid-form-message"
+        *ngIf="
+          !signInForm.get('password')?.valid &&
+          signInForm.get('password')?.touched
+        "
+        >Password must contain more than 4 characters!</span
+      >
+
       <div class="submit-form-container">
         <button
           [disabled]="!signInForm.valid"
           class="submit-form-button"
           type="submit"
         >
-          create account
+          {{ logInForm.valid ? "Create account" : "Enter valid data!" }}
         </button>
       </div>
     </form>
@@ -55,11 +79,31 @@
 
       <label for="name">Name:</label>
       <input type="text" formControlName="name" />
+      <span
+        class="invalid-form-message"
+        *ngIf="!logInForm.get('name')?.valid && logInForm.get('name')?.touched"
+        >You can't use special and space characters! <br />
+        Password must contain more than 4 characters!
+      </span>
 
       <label for="password" type="password">Password:</label>
       <input type="password" formControlName="password" />
+      <span
+        class="invalid-form-message"
+        *ngIf="
+          !logInForm.get('password')?.valid &&
+          logInForm.get('password')?.touched
+        "
+        >Password must contain more than 4 characters!</span
+      >
 
-      <button type="submit">login</button>
+      <button
+        type="submit"
+        [disabled]="!logInForm.valid"
+        class="submit-form-button"
+      >
+        {{ logInForm.valid ? "Login" : "Enter valid data!" }}
+      </button>
     </form>
 
     <ng-container *ngIf="isHamMenuOpen">
@@ -74,9 +118,5 @@
     </ng-container>
   </div>
 </div>
-
-<!-- treba da se dodaju stilovi na dugme u formi ==> dodati popup prozore za invalid unose
-
-dodati page not found i redirekciju
-nadji dobar api za Gym
-  -->
+<!-- 
+page not found uradi home page uradi -->
