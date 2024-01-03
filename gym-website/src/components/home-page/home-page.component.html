@@ -1,5 +1,20 @@
 <p>home-page works!</p>
 
+<div class="home-wrapper">
+  <div class="diff-categories-container">
+    <ul>
+      <li (click)="choosingDiff()">beg</li>
+      <li>inte</li>
+      <li>expert</li>
+    </ul>
+    <div style="height: 200px; width: 300px; background-color: blueviolet">
+      <ul *ngFor="let data of beginnerExerData">
+        <li>{{ data.name }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <ng-container *ngIf="isHamMenuOpen">
   <div class="opened-navbar">
     <div class="navbar-content">
