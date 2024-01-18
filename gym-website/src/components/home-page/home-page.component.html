@@ -1,15 +1,22 @@
-<p>home-page works!</p>
-
 <div class="home-wrapper">
+  <div>
+    <h2>Welcome to dream gym</h2>
+    <h3>
+      Here u can choose diff of exercises and learn something about them. On
+      "programs" page u can choose your desired strength program and also some
+      cardio exercises. On "exercises" page u can choose exercises of many types
+      we offer. to do
+    </h3>
+  </div>
   <div class="diff-categories-container">
     <ul>
-      <li (click)="choosingDiff()">beg</li>
-      <li>inte</li>
-      <li>expert</li>
+      <li (click)="updateExerDiffValue('beginner')">beginner</li>
+      <li (click)="updateExerDiffValue('intermediate')">intermediate</li>
+      <li (click)="updateExerDiffValue('expert')">expert</li>
     </ul>
     <div style="height: 200px; width: 300px; background-color: blueviolet">
-      <ul *ngFor="let data of beginnerExerData">
-        <li>{{ data.name }}</li>
+      <ul *ngFor="let data of beginnerExerData; let i = index">
+        <li (click)="goToExerciseDdetails(data.name)">{{ data.name }}</li>
       </ul>
     </div>
   </div>

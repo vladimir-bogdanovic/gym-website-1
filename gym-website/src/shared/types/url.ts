@@ -3,4 +3,5 @@ export enum apiUrl {
   muscleGroupUrl = 'https://api.api-ninjas.com/v1/exercises?muscle=',
   exerciseTypeUrl = 'https://api.api-ninjas.com/v1/exercises?type=',
   exercisesDifficulty = 'https://api.api-ninjas.com/v1/exercises?difficulty=',
+  exerciseName = 'https://api.api-ninjas.com/v1/exercises?name=',
 }
