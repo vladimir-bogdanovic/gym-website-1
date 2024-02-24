@@ -1,9 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { APIService } from 'src/shared/services/api.service';
 import { ToogleFormsService } from 'src/shared/services/toogle-forms.service';
-import { SingleExercise } from 'src/shared/types/types';
+import { ExerciseDetails } from 'src/shared/types/types';
 
 @Component({
   standalone: true,
@@ -14,37 +13,21 @@ import { SingleExercise } from 'src/shared/types/types';
 })
 export class HomePageComponent implements OnInit {
   isHamMenuOpen = false;
-  difficuylty = '';
-  beginnerExerData!: SingleExercise[];
+  gymExercises!: ExerciseDetails[];
 
   constructor(
     private toggleFormsService: ToogleFormsService,
-    private apiService: APIService,
-    private router: Router
+    private apiService: APIService
   ) {}
 
   ngOnInit(): void {
     this.toggleFormsService.hamMenuBooleanValue$.subscribe((value: boolean) => {
       this.isHamMenuOpen = value;
+
+      this.apiService.testingNewAPi().subscribe((data: ExerciseDetails[]) => {
+        console.log(data);
+        this.gymExercises = data;
+      });
     });
-  }
-
-  updateExerDiffValue(value: string) {
-    this.difficuylty = value;
-    this.apiService
-      .getDifficulty(this.difficuylty)
-      .subscribe((data: SingleExercise[]) => {
-        console.log(data);
-        this.beginnerExerData = data;
-      });
-  }
-
-  goToExerciseDdetails(name: string) {
-    console.log(name);
-    this.apiService
-      .getExerciseByName(name)
-      .subscribe((data: SingleExercise) => {
-        console.log(data);
-      });
   }
 }
