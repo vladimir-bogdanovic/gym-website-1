@@ -5,6 +5,8 @@ import {
   WelcomePageComponent,
   PageNotFoundComponent,
 } from 'src/components';
+import { ExercisesPageComponent } from 'src/components/exercises-page/exercises-page.component';
+import { ProgramsPageComponent } from 'src/components/programs-page/programs-page.component';
 
 const routes: Routes = [
   {
@@ -19,6 +21,14 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent,
+  },
+  {
+    path: 'programs',
+    component: ProgramsPageComponent,
+  },
+  {
+    path: 'exercises',
+    component: ExercisesPageComponent,
   },
   {
     path: '**',

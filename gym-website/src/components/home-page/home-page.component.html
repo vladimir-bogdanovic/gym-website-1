@@ -1,19 +1,41 @@
-<div class="home-wrapper">
-  <div>
-    <h2>Welcome to dream gym</h2>
-    <h3>
-      Here u can choose diff of exercises and learn something about them. On
-      "programs" page u can choose your desired strength program and also some
-      cardio exercises. On "exercises" page u can choose exercises of many types
-      we offer. to do
+<div *ngIf="!isHamMenuOpen" class="home-wrapper">
+  <div class="home-content-div">
+    <h1 class="home-title">
+      Discipline is the bridge between goals and accomplishments.
+    </h1>
+    <h3 class="home-lorem-text">
+      "Welcome to Dream Gym, where fitness meets comfort! Whether you're a
+      seasoned gym-goer or just starting your fitness journey, we're here to
+      support you every step of the way. Our state-of-the-art facility offers
+      everything you need to achieve your health and wellness goals from the
+      comfort of your own neighborhood. <br />
+
+      Explore our wide range of equipment, from cardio machines to free weights,
+      designed to cater to all fitness levels and preferences. Our certified
+      trainers are available to provide personalized workout plans and guidance
+      to ensure you get the most out of your time with us. <br />
+
+      Join our vibrant community of like-minded individuals committed to living
+      healthier, happier lives. With convenient hours and flexible membership
+      options, fitting fitness into your busy schedule has never been easier.
+      <br />
+
+      Take the first step towards a stronger, fitter you today. Come experience
+      the difference at Dream Gym!" <br />
+    </h3>
+
+    <h3 class="redirection-home-text">
+      Start our fitness
+      <span (click)="goToPrograms()" class="redirecting-button">
+        programs
+      </span>
+      for free. You can also find out more about the
+      <span (click)="goToExercises()" class="redirecting-button">
+        exercises
+      </span>
+      that we provide with text and video instructions.
     </h3>
   </div>
-</div>
-
-<div>
-  <ul *ngFor="let exercise of gymExercises">
-    <li>{{ exercise.WorkOut }}</li>
-  </ul>
 </div>
 
 <ng-container *ngIf="isHamMenuOpen">

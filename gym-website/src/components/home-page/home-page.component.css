@@ -1,1 +1,65 @@
+.home-wrapper {
+  background-image: url(../welcome-page/../../assets/images/welcome-page-img.png);
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.home-content-div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.home-title {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 40px;
+  border-radius: 5px;
+  border: solid rgb(35, 197, 89) 2px;
+  margin: 50px 10px 10px 10px;
+}
+
+.home-lorem-text {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 40px;
+  border-radius: 5px;
+  border: solid rgb(35, 197, 89) 2px;
+  margin: 50px 30px 10px 30px;
+}
+
+.redirection-home-text {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 40px;
+  border-radius: 5px;
+  border: solid rgb(35, 197, 89) 2px;
+  margin: 50px 10px 60px 10px;
+}
+
+.redirecting-button {
+  margin: 0 8px 0 8px;
+  text-decoration: underline;
+}
+
+.redirecting-button:hover {
+  transform: scale(1.1);
+  color: var(--buttons);
+  cursor: pointer;
+}

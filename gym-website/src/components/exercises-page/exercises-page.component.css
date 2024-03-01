@@ -1,0 +1,16 @@
+.exercises-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+.exercise-card-container {
+  background-color: aquamarine;
+  width: 300px;
+  margin: 20px;
+}

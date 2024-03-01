@@ -17,7 +17,7 @@ export class APIService {
 
   constructor(private http: HttpClient) {}
 
-  testingNewAPi(): Observable<ExerciseDetails[]> {
+  getFitnessData(): Observable<ExerciseDetails[]> {
     return this.http.get<ExerciseDetails[]>(this.testAPI, {
       headers: this.headers,
     });

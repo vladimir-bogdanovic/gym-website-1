@@ -1,8 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { APIService } from 'src/shared/services/api.service';
 import { ToogleFormsService } from 'src/shared/services/toogle-forms.service';
-import { ExerciseDetails } from 'src/shared/types/types';
 
 @Component({
   standalone: true,
@@ -13,21 +13,23 @@ import { ExerciseDetails } from 'src/shared/types/types';
 })
 export class HomePageComponent implements OnInit {
   isHamMenuOpen = false;
-  gymExercises!: ExerciseDetails[];
 
   constructor(
     private toggleFormsService: ToogleFormsService,
-    private apiService: APIService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.toggleFormsService.hamMenuBooleanValue$.subscribe((value: boolean) => {
       this.isHamMenuOpen = value;
-
-      this.apiService.testingNewAPi().subscribe((data: ExerciseDetails[]) => {
-        console.log(data);
-        this.gymExercises = data;
-      });
     });
+  }
+
+  goToPrograms() {
+    this.router.navigate(['programs']);
+  }
+
+  goToExercises() {
+    this.router.navigate(['exercises']);
   }
 }

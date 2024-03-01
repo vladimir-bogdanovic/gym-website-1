@@ -1,0 +1,24 @@
+<div class="Exercises-page-wrapper">
+  <div class="search-filter-exercises">
+    <form [formGroup]="searchForm">
+      <input
+        type="text"
+        formControlName="searchParametars"
+        placeholder="Search"
+      />
+    </form>
+  </div>
+  <div class="exercises-cards-wrapper">
+    <div class="exercises-cards">
+      <ul *ngFor="let exercise of allExercises">
+        <li class="cards-container">
+          <div class="exercise-card-container">
+            <div>{{ exercise.WorkOut }}</div>
+            <div>{{ exercise.Intensity_Level }}</div>
+            <div>{{ exercise.Muscles }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
