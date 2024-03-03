@@ -1,15 +1,39 @@
 <div class="Exercises-page-wrapper">
-  <div class="search-filter-exercises">
-    <form [formGroup]="searchForm">
-      <input
-        type="text"
-        formControlName="searchParametars"
-        placeholder="Search"
-      />
-    </form>
+  <!-- // -->
+  <div class="funcionalities-div-wrapper">
+    <div class="search-filter-exercises">
+      <form [formGroup]="searchForm">
+        <input
+          type="text"
+          formControlName="searchParametars"
+          placeholder="Search"
+        />
+      </form>
+    </div>
+    <div class="filter-button">
+      <button (click)="toggleMenu()" class="toggle-button">
+        filter exercises
+      </button>
+      <div class="filter-menu" [ngClass]="{ show: isFilterMenuOpen }">
+        <ul>
+          <li (click)="filterByLevelDiff()">by level</li>
+          <li>testing</li>
+          <li (click)="toggleSubmenu()">by muscle group</li>
+          <div class="filter-submenu" [ngClass]="{ show: isFilterSubmenuOpen }">
+            <ul>
+              <li (click)="getMuscleGroup('biceps')">biceps</li>
+              <li>triceps</li>
+              <li>chest</li>
+            </ul>
+          </div>
+          <li>testing overflow</li>
+        </ul>
+      </div>
+    </div>
   </div>
+
   <div class="exercises-cards-wrapper">
-    <div class="exercises-cards">
+    <div class="exercises-cards-container">
       <ul *ngFor="let exercise of allExercises">
         <li class="cards-container">
           <div class="exercise-card-container">
@@ -20,5 +44,18 @@
         </li>
       </ul>
     </div>
+    //
+    <div class="exercises-cards">
+      <ul *ngFor="let Muscles of muscleGroupExercises">
+        <li class="cards-container-container">
+          <div class="exercise-card-container">
+            <div>{{ Muscles.WorkOut }}</div>
+            <div>{{ Muscles.Intensity_Level }}</div>
+            <div>{{ Muscles.Equipment }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    //
   </div>
 </div>

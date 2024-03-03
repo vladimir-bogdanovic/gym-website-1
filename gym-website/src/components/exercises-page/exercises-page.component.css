@@ -1,4 +1,6 @@
-.exercises-cards {
+/* ////////////////////////     CARDS START   ////////////////////////////////////////// */
+
+.cards-container-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -7,6 +9,7 @@
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 .exercise-card-container {
@@ -14,3 +17,47 @@ ul {
   width: 300px;
   margin: 20px;
 }
+
+/* ////////////////////////     CARDS END   ////////////////////////////////////////// */
+
+/* ////////////////////////     INPUT I FILTER START   ////////////////////////////////////////// */
+
+.funcionalities-div-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 10px 50px;
+}
+
+.toggle-button {
+  margin-right: 40px;
+}
+
+.filter-menu {
+  background-color: #c7b7b7;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  display: none;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+.filter-menu.show {
+  display: flex;
+}
+
+.filter-submenu {
+  background-color: #e57a7a;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  display: none;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+.filter-submenu.show {
+  display: flex;
+}
+
+/* ////////////////////////     INPUT I FILTER END  ////////////////////////////////////////// */

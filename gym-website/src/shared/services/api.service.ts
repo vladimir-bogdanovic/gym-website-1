@@ -8,7 +8,7 @@ import { ExerciseDetails } from '../types/types';
 })
 export class APIService {
   private apiKey = '4cc4689d64msh39dc780535d2a72p1dde8bjsnb5394e68e33a';
-  private testAPI = 'https://work-out-api1.p.rapidapi.com/search';
+  private baseAPI = 'https://work-out-api1.p.rapidapi.com/search';
 
   headers = new HttpHeaders({
     'X-RapidAPI-Key': this.apiKey,
@@ -18,8 +18,17 @@ export class APIService {
   constructor(private http: HttpClient) {}
 
   getFitnessData(): Observable<ExerciseDetails[]> {
-    return this.http.get<ExerciseDetails[]>(this.testAPI, {
+    return this.http.get<ExerciseDetails[]>(this.baseAPI, {
       headers: this.headers,
     });
+  }
+
+  getMuscleGroupExercises(muscleGroup: string): Observable<ExerciseDetails[]> {
+    return this.http.get<ExerciseDetails[]>(
+      `${this.baseAPI}?Muscles=${muscleGroup}`,
+      {
+        headers: this.headers,
+      }
+    );
   }
 }
