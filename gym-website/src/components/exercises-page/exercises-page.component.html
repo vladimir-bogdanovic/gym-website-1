@@ -33,10 +33,10 @@
   </div>
 
   <div class="exercises-cards-wrapper">
-    <div class="exercises-cards-container">
-      <ul *ngFor="let exercise of allExercises">
-        <li class="cards-container">
-          <div class="exercise-card-container">
+    <div *ngIf="deafultExercises" class="exercises-cards-container">
+      <ul *ngFor="let exercise of exercises">
+        <li>
+          <div class="exercise-card">
             <div>{{ exercise.WorkOut }}</div>
             <div>{{ exercise.Intensity_Level }}</div>
             <div>{{ exercise.Muscles }}</div>
@@ -44,11 +44,11 @@
         </li>
       </ul>
     </div>
-    //
-    <div class="exercises-cards">
-      <ul *ngFor="let Muscles of muscleGroupExercises">
-        <li class="cards-container-container">
-          <div class="exercise-card-container">
+    <!-- // -->
+    <div class="exercises-cards-container">
+      <ul *ngFor="let Muscles of exercises">
+        <li>
+          <div class="exercise-card">
             <div>{{ Muscles.WorkOut }}</div>
             <div>{{ Muscles.Intensity_Level }}</div>
             <div>{{ Muscles.Equipment }}</div>
@@ -56,6 +56,6 @@
         </li>
       </ul>
     </div>
-    //
+    <!-- // -->
   </div>
 </div>

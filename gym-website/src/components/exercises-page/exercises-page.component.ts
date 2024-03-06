@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime } from 'rxjs';
@@ -7,17 +7,18 @@ import { ExerciseDetails } from 'src/shared/types/types';
 
 @Component({
   standalone: true,
-  imports: [NgFor, ReactiveFormsModule, NgClass],
+  imports: [NgFor, NgIf, ReactiveFormsModule, NgClass],
   selector: 'app-exercises-page',
   templateUrl: './exercises-page.component.html',
   styleUrls: ['./exercises-page.component.css'],
 })
 export class ExercisesPageComponent implements OnInit {
   searchForm!: FormGroup;
-  allExercises!: ExerciseDetails[];
-  muscleGroupExercises!: ExerciseDetails[];
   isFilterMenuOpen: boolean = false;
   isFilterSubmenuOpen: boolean = false;
+  deafultExercises: boolean = true;
+
+  exercises!: ExerciseDetails[];
 
   constructor(
     private apiService: APIService,
@@ -29,18 +30,23 @@ export class ExercisesPageComponent implements OnInit {
       searchParametars: [''],
     });
     this.apiService.getFitnessData().subscribe((data: ExerciseDetails[]) => {
-      this.allExercises = data;
-      this.searchForm
-        .get('searchParametars')
-        ?.valueChanges.pipe(debounceTime(400))
-        .subscribe((value: string) => {
-          this.allExercises = data.filter((data: ExerciseDetails) => {
-            const lowerCaseData = data.WorkOut.toLowerCase();
-            const lowerCaseValue = value.toLowerCase();
-            return lowerCaseData.includes(lowerCaseValue);
-          });
-        });
+      this.exercises = data;
+      this.testSerachInput(data);
     });
+  }
+
+  testSerachInput(data: ExerciseDetails[]) {
+    this.searchForm
+      .get('searchParametars')
+      ?.valueChanges.pipe(debounceTime(500))
+      .subscribe((value: string) => {
+        this.exercises = data.filter((data: ExerciseDetails) => {
+          const lowerCaseData = data.WorkOut.toLowerCase();
+          const lowerCaseValue = value.toLowerCase();
+
+          return lowerCaseData.includes(lowerCaseValue);
+        });
+      });
   }
 
   toggleMenu() {
@@ -60,7 +66,9 @@ export class ExercisesPageComponent implements OnInit {
     this.apiService
       .getMuscleGroupExercises(mouscleGroup)
       .subscribe((data: ExerciseDetails[]) => {
-        this.muscleGroupExercises = data;
+        this.exercises = data;
+        this.testSerachInput(data);
       });
+    this.deafultExercises = false;
   }
 }

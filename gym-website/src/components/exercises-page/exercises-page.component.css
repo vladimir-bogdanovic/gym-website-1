@@ -1,6 +1,6 @@
 /* ////////////////////////     CARDS START   ////////////////////////////////////////// */
 
-.cards-container-container {
+.exercises-cards-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -12,12 +12,11 @@ ul {
   padding: 0;
 }
 
-.exercise-card-container {
+.exercise-card {
+  margin: 20px;
   background-color: aquamarine;
   width: 300px;
-  margin: 20px;
 }
-
 /* ////////////////////////     CARDS END   ////////////////////////////////////////// */
 
 /* ////////////////////////     INPUT I FILTER START   ////////////////////////////////////////// */
